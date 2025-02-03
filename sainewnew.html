@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sai Laxmi Narayana | Portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2a2a72;
+            --secondary-color: #009ffd;
+            --accent-color: #ff6b6b;
+            --text-color: #232528;
+            --light-color: #f8f9fa;
+        }
+
+        * {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--light-color);
+            color: var(--text-color);
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95) !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s ease;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-color) !important;
+            font-size: 1.5rem;
+        }
+
+        .nav-link {
+            color: var(--text-color) !important;
+            font-weight: 500;
+            margin: 0 15px;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--secondary-color) !important;
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            animation: fadeInDown 1.5s ease;
+        }
+
+        .typed-text {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1.5s ease;
+        }
+
+        .about-me {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.9);
+            animation: fadeInUp 2s ease;
+        }
+
+        .btn-hero {
+            font-size: 1.1rem;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-hero:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-image {
+            max-width: 500px;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* Projects Section */
+        #projects {
+            padding: 6rem 0;
+        }
+
+        .project-card {
+            border: none;
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-image {
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Skills Section */
+        #skills {
+            padding: 6rem 0;
+            background: var(--light-color);
+        }
+
+        .skill-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .skill-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+
+        .contact-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-description {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-link {
+            font-size: 1.8rem;
+            color: white;
+            margin: 0 1rem;
+            transition: 0.3s ease;
+        }
+
+        .social-link:hover {
+            color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+
+        /* Animations */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes fadeInDown {
+            0% { opacity: 0; transform: translateY(-50px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(50px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Allam Sai Laxmi Narayana</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content">
+                    <h1 class="hero-title">Hi, I'm <span class="text-warning">Sai Laxmi Narayana</span></h1>
+                    <p class="typed-text">BTech Computer Science Student | Android App Developer</p>
+                    <p class="about-me">
+                        I am a passionate and driven BTech Computer Science student with a strong interest in Android app development and web technologies. I enjoy building innovative solutions that solve real-world problems and constantly strive to learn and improve my skills. Let's create something amazing together!
+                    </p>
+                    <a href="#contact" class="btn btn-light btn-hero">Hire Me</a>
+                    <a href="Sai Laxmi Narayana MResume.pdf" download class="btn btn-outline-light btn-hero ms-3">Download Resume</a>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <img src="sai dp.jpg" alt="Hero Image" class="img-fluid hero-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Featured Projects</h2>
+            <div class="row g-4">
+                <!-- Project 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card h-100">
+                        <img src="image1.jpeg" class="project-image img-fluid" alt="Project 1">
+                        <div class="p-4 d-flex flex-column">
+                            <h4 class="project-title">Women Safety App</h4>
+                            <p class="project-description">Women Safety App with Java, React, MySQL, PHP, XML</p>
+                            <div class="mt-auto">
+                                <a href="#" class="btn btn-primary">View Code</a>
+                                <a href="#" class="btn btn-outline-primary ms-2">Live Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card h-100">
+                        <img src="image4.png" class="project-image img-fluid" alt="Project 2">
+                        <div class="p-4 d-flex flex-column">
+                            <h4 class="project-title">Leave Management App</h4>
+                            <p class="project-description">Android App with Java, MySQL, PHP, XML</p>
+                            <div class="mt-auto">
+                                <a href="#" class="btn btn-primary">View Code</a>
+                                <a href="#" class="btn btn-outline-primary ms-2">Live Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card h-100">
+                        <img src="image5.jpeg" class="project-image img-fluid" alt="Project 3">
+                        <div class="p-4 d-flex flex-column">
+                            <h4 class="project-title">Movie Streaming Website</h4>
+                            <p class="project-description">Streaming website with HTML, CSS, JavaScript, MySQL, Node.js, Bootstrap</p>
+                            <div class="mt-auto">
+                                <a href="#" class="btn btn-primary">View Code</a>
+                                <a href="#" class="btn btn-outline-primary ms-2">Live Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Technical Skills</h2>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-4 col-6">
+                    <div class="skill-item">
+                        <i class="fab fa-python skill-icon"></i>
+                        <h5 class="skill-name">Python</h5>
+                    </div>
+                </div>
+
+              <!-- Java -->
+              <div class="col-lg-3 col-md-4 col-6">
+                <div class="skill-item">
+                    <i class="fab fa-java skill-icon"></i>
+                    <h5>Java</h5>
+                </div>
+            </div>
+
+            <!-- C -->
+            <div class="col-lg-3 col-md-4 col-6">
+                <div class="skill-item">
+                    <i class="fas fa-cogs skill-icon"></i>
+                    <h5>C</h5>
+                </div>
+            </div>
+
+            <!-- MySQL -->
+            <div class="col-lg-3 col-md-4 col-6">
+                <div class="skill-item">
+                    <i class="fas fa-database skill-icon"></i>
+                    <h5>MySQL</h5>
+                </div>
+            </div>
+
+            <!-- PHP -->
+            <div class="col-lg-3 col-md-4 col-6">
+                <div class="skill-item">
+                    <i class="fab fa-php skill-icon"></i>
+                    <h5>PHP</h5>
+                </div>
+            </div>
+
+            <!-- AWS Cloud -->
+            <div class="col-lg-3 col-md-4 col-6">
+                <div class="skill-item">
+                    <i class="fab fa-aws skill-icon"></i>
+                    <h5>AWS Cloud</h5>
+                </div>
+            </div>
+
+            <!-- React -->
+            <div class="col-lg-3 col-md-4 col-6">
+                <div class="skill-item">
+                    <i class="fab fa-react skill-icon"></i>
+                    <h5>React</h5>
+                </div>
+            </div>
+
+            <!-- JavaScript -->
+            <div class="col-lg-3 col-md-4 col-6">
+                <div class="skill-item">
+                    <i class="fab fa-js-square skill-icon"></i>
+                    <h5>JavaScript</h5>
+                </div>
+            </div>
+
+                            <!-- Add more skills here -->
+                        </div>
+                    </div>
+                </section>
+            
+                <!-- Contact Section -->
+                <section id="contact">
+                    <div class="container text-center">
+                        <h2 class="contact-title">Get In Touch</h2>
+                        <p class="contact-description">Let's build something amazing together!</p>
+                        <div class="mb-4">
+                            <a href="mailto:sailaxminarayana465@gmail.com" class="btn btn-light btn-hero">Send Email</a>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://github.com/SaiLaxmiNarayana" class="social-link"><i class="fab fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/sai-laxmi-narayana-ba1107263/" class="social-link"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://x.com/sailaxmina43218" class="social-link"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </section>
+            
+                <!-- Footer -->
+                <footer class="bg-dark text-white text-center py-4">
+                    <p class="mb-0">&copy; 2023 Sai Laxmi Narayana. All Rights Reserved.</p>
+                </footer>
+            
+                <!-- Bootstrap JS -->
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+                <!-- Typed.js -->
+                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+                <!-- AOS (Animate On Scroll) -->
+                <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+                <script>
+                    // Typed.js Initialization
+                    var typed = new Typed('.typed-text', {
+                        strings: ["BTech Computer Science Student", "Android App Developer", "Web Developer"],
+                        typeSpeed: 50,
+                        backSpeed: 30,
+                        loop: true
+                    });
+            
+                    // Smooth Scroll
+                    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                        anchor.addEventListener('click', function (e) {
+                            e.preventDefault();
+                            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                                behavior: 'smooth'
+                            });
+                        });
+                    });
+            
+                    // Navbar Scroll Effect
+                    window.addEventListener('scroll', function() {
+                        if (window.scrollY > 50) {
+                            document.querySelector('.navbar').style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+                        } else {
+                            document.querySelector('.navbar').style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                        }
+                    });
+            
+                    // AOS Initialization
+                    AOS.init({
+                        duration: 1000,
+                        once: true,
+                    });
+                </script>
+            </body>
+            </html>
